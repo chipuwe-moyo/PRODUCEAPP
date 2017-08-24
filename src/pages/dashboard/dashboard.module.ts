@@ -1,0 +1,18 @@
+import { NgModule } from '@angular/core';
+import { IonicPageModule } from 'ionic-angular';
+import { DashboardPage } from './dashboard';
+import { SidemenuPage } from '../sidemenu/sidemenu';
+
+
+@NgModule({
+  declarations: [
+    DashboardPage,
+  ],
+  imports: [
+    IonicPageModule.forChild(DashboardPage),
+  ],
+  exports: [
+    DashboardPage
+  ]
+})
+export class DashboardPageModule {}

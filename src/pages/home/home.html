@@ -1,14 +1,83 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="primary"  >
+
+    <ion-title>Home</ion-title>
+
+
+
+    <ion-searchbar
+  [(ngModel)]="myInput"
+  [showCancelButton]="shouldShowCancel"
+  (ionInput)="onInput($event)"
+  (ionCancel)="onCancel($event)">
+</ion-searchbar>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;" id="page1">
+  <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+    <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+  </div>
+
+  <ion-card id="home-card22">
+
+    <ion-list>
+
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+
+      <ion-item color="assertive" on-click="goToDashboard()" id="home-list-item29">
+
+        <ion-icon name="calender" item-left></ion-icon>
+      DASHBOARD
+
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+
+  <ion-card id="home-card23">
+
+    <ion-list>
+
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+
+      <ion-item color="assertive" on-click="goToProduce()" id="home-list-item28">
+
+        <ion-icon name="flower" item-left></ion-icon>
+        PRODUCE
+
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+  <ion-card id="home-card24">
+    <ion-list>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+      <ion-item color="balanced" on-click ="goToFarmer()" id="home-list-item13">
+        <ion-icon name="person" item-left></ion-icon>
+        FARMER
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <ion-card id="home-card25">
+    <ion-list>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+      <ion-item color="energized" on-click="goToSettings()" id="home-list-item27">
+        <ion-icon name="settings" item-left></ion-icon>
+        Settings
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
+
+

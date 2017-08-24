@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Settings
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page12" style="background-color:#7EEB6F;">
+  <ion-list id="settings-list6">
+    <ion-item color="none"  (click)="goToLogin()" id="settings-list-item31">
+      logout
+    </ion-item>
+    <ion-item color="none" (click)="goToPersonalSettings()" id="settings-list-item32">
+      personalsettings
+    </ion-item>
+    <ion-item color="none" on-click="goToAbout()" id="settings-list-item33">
+      about
+    </ion-item>
+  </ion-list>
+</ion-content>
