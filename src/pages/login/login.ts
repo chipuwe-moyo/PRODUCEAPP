@@ -28,8 +28,8 @@ export class LoginPage {
   }
 
 
-onLogin(credentials: string){
-    this.authService.login(credentials,)
+onLogin(form: NgForm){
+    this.authService.login(form.value.usename, form.value.password)
       .subscribe(result =>{
         if(result===true){
           this.navCtrl.setRoot(HomePage);

@@ -16,11 +16,10 @@ export class AuthService {
 
   public token : string;
 
-  login(credentials): Observable<boolean> {
-
-    let headers = new Headers();
-    //headers.append('Access-Control-Request-Origin', 'http://localhost:8100');
-    return this.http.post('http://localhost:8000/api/auth/login', JSON.stringify(credentials)).map(
+  login(username: string, password:string): Observable<boolean> {
+    
+    return this.http.post('http://localhost:8000/api/auth/login', 
+    {username: username,password: password}).map(
       (response: Response) => {
         let token = response.json() && response.json().token;
         if (token) {
