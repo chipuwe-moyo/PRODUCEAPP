@@ -3,6 +3,12 @@
   "app_id": "",
   "type": "ionic-angular",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "proxies": [
+    {
+    	"path": "/server",
+    	"proxyUrl": "http://localhost:8000"
+    }
+    ]
   }
 }

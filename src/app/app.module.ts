@@ -19,12 +19,14 @@ import {RegisterPage} from'../pages/register/register';
 import {PersonalSettingsPage} from  "../pages/personal-settings/personal-settings";
 import {SettingsPage}from "../pages/settings/settings";
 import {AboutPage}from"../pages/about/about";
+import {AddproducePage}from"../pages/addproduce/addproduce";
 import{Http, HttpModule} from '@angular/http';
 import {AuthService} from "./auth.service";
 
 import {Transfer} from '@ionic-native/transfer';
 import {FilePath} from '@ionic-native/file-path';
 import {Camera} from '@ionic-native/camera';
+import { CommodityProvider } from '../providers/commodity/commodity';
 
 
 
@@ -44,7 +46,8 @@ import {Camera} from '@ionic-native/camera';
     MyInterestPage,
     PersonalSettingsPage,
     SettingsPage,
-    AboutPage
+    AboutPage,
+    AddproducePage
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,8 @@ import {Camera} from '@ionic-native/camera';
     MyInterestPage,
     PersonalSettingsPage,
     SettingsPage,
-    AboutPage
+    AboutPage,
+    AddproducePage
   ],
   providers: [
     AuthService,
@@ -77,6 +81,7 @@ import {Camera} from '@ionic-native/camera';
     Camera,
     FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CommodityProvider,
 
   ]
 })

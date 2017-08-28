@@ -15,11 +15,14 @@ export class AuthService {
   }
 
   public token : string;
-
-  login(username: string, password:string): Observable<boolean> {
+  
+  login(username: string, password: string): Observable<boolean> {
     
     return this.http.post('http://localhost:8000/api/auth/login', 
-    {username: username,password: password}).map(
+    {username: username, password: password},
+    {headers: new Headers({'X-Requested-With': 'XMLHttpRequest'})}
+    )
+    .map(
       (response: Response) => {
         let token = response.json() && response.json().token;
         if (token) {

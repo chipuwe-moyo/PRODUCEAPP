@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AddproducePage} from "../addproduce/addproduce";
+
 
 /**
  * Generated class for the MyProducePage page.
@@ -20,5 +22,8 @@ export class MyProducePage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProducePage');
   }
+  addproduce(){
 
+    this.navCtrl.push(AddproducePage);
+  }
 }
