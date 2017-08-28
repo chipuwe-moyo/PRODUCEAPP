@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddproducePage} from "../addproduce/addproduce";
+import {CommodityProvider} from "../../providers/commodity/commodity";
 
 
 /**
@@ -16,9 +17,19 @@ import {AddproducePage} from "../addproduce/addproduce";
 })
 export class MyProducePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  commodityList =[];
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,  private commodityService : CommodityProvider) {
+
+    this.getCommodity();
+  }
+getCommodity(){
+    this.commodityService.getCommodity().subscribe((data)=>{
+      this.commodityList = data;
+
+    });
+
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProducePage');
   }
