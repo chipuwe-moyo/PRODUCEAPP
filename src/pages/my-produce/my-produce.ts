@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddproducePage} from "../addproduce/addproduce";
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from '../../models/commodity';
+import {ProduceDetailsPage} from "../produce-details/produce-details";
 
 
 /**
@@ -36,9 +37,7 @@ export class MyProducePage implements OnInit {
   addproduce(){
     this.navCtrl.push(AddproducePage);
   }
- /* showProduce(){
-  //iteration method goes here
-  for comodities
-  console.log('commodities');
-  }*/
+  goToDetails(product: string) {
+    this.navCtrl.push(ProduceDetailsPage, {product});
+  }
 }

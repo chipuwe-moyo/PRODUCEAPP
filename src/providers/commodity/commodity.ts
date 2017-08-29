@@ -15,6 +15,7 @@ import {commodity } from '../../models/commodity';
 @Injectable()
 export class CommodityProvider {
 
+
   getCommodity():Observable<commodity[]> {
 
     return this.http.get("http://localhost:8000/api/commodity/all")

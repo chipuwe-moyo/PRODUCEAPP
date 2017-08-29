@@ -20,6 +20,7 @@ import {PersonalSettingsPage} from  "../pages/personal-settings/personal-setting
 import {SettingsPage}from "../pages/settings/settings";
 import {AboutPage}from"../pages/about/about";
 import {AddproducePage}from"../pages/addproduce/addproduce";
+import {ProduceDetailsPage } from "../pages/produce-details/produce-details";
 import{Http, HttpModule} from '@angular/http';
 import {AuthService} from "./auth.service";
 
@@ -47,7 +48,8 @@ import { CommodityProvider } from '../providers/commodity/commodity';
     PersonalSettingsPage,
     SettingsPage,
     AboutPage,
-    AddproducePage
+    AddproducePage,
+    ProduceDetailsPage
   ],
   imports: [
     BrowserModule,
@@ -71,7 +73,8 @@ import { CommodityProvider } from '../providers/commodity/commodity';
     PersonalSettingsPage,
     SettingsPage,
     AboutPage,
-    AddproducePage
+    AddproducePage,
+    ProduceDetailsPage
   ],
   providers: [
     AuthService,

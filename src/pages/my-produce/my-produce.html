@@ -12,7 +12,7 @@
 </ion-header>
 <ion-content  style="background-color:#71EC6B;">
  <ion-list>
-  <ion-item *ngFor="let commodity of commodities">
+  <ion-item *ngFor="let commodity of commodities" on-click="goToDetails(commodity.product)">
   <h2>{{ commodity.product }} </h2>
     <p> {{commodity.description}}</p>
     <ion-icon name="arrow-forward" item-right></ion-icon>
