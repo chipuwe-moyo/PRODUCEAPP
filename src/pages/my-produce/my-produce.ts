@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {AddproducePage} from "../addproduce/addproduce";
 import {CommodityProvider} from "../../providers/commodity/commodity";
+import {commodity} from '../../models/commodity';
 
 
 /**
@@ -15,26 +16,29 @@ import {CommodityProvider} from "../../providers/commodity/commodity";
   selector: 'page-my-produce',
   templateUrl: 'my-produce.html',
 })
-export class MyProducePage {
+export class MyProducePage implements OnInit {
 
-  commodityList =[];
+  commodities:commodity[]
+
+  ngOnInit(){
+    this.commodityService.getCommodity().subscribe((commodities: commodity[]) => {
+      this.commodities = commodities;
+    });
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams,  private commodityService : CommodityProvider) {
 
-    this.getCommodity();
   }
-getCommodity(){
-    this.commodityService.getCommodity().subscribe((data)=>{
-      this.commodityList = data;
 
-    });
-
-}
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProducePage');
   }
   addproduce(){
-
     this.navCtrl.push(AddproducePage);
   }
+ /* showProduce(){
+  //iteration method goes here
+  for comodities
+  console.log('commodities');
+  }*/
 }

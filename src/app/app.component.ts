@@ -7,13 +7,14 @@ import {StartPage} from '../pages/start/start';
 import { HomePage } from '../pages/home/home';
 import { ProducePage } from '../pages/produce/produce';
 import {DashboardPage} from '../pages/dashboard/dashboard';
+import {MyProducePage} from "../pages/my-produce/my-produce";
 
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginPage;
+  rootPage:any = MyProducePage;
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

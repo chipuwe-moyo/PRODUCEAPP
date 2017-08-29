@@ -3,8 +3,9 @@ import { Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
-
-
+import 'rxjs/Rx'
+import {Observable} from 'rxjs/Rx';
+import {commodity } from '../../models/commodity';
 /*
   Generated class for the CommodityProvider provider.
 
@@ -14,14 +15,11 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class CommodityProvider {
 
-  getApiUrl : string ="http://localhost:8000/api/commodity";
+  getCommodity():Observable<commodity[]> {
 
-  getCommodity(){
+    return this.http.get("http://localhost:8000/api/commodity/all")
+      .map((res: Response) => {return res.json().commodities});
 
-    return this.http.get(this.getApiUrl)
-           .do(( res : Response) => console.log(res.json())
-           .map((res: Response)=> res.json())
-           .catch(error=> console.log(error));
 
   }
   constructor(public http: Http) {
