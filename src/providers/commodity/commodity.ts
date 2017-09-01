@@ -23,6 +23,15 @@ export class CommodityProvider {
 
 
   }
+
+  getApiUrl : "http://localhost:8000/api/commodity/info";
+//
+
+  loadDetails(id: string): Observable<commodity[]> {
+
+    return this.http.get(`${this.getApiUrl}/${id}`)
+      .map((res: Response) => {return res.json().commodities});
+  }
   constructor(public http: Http) {
     console.log('Hello CommodityProvider Provider');
   }

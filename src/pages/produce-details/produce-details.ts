@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {CommodityProvider} from "../../providers/commodity/commodity";
+import {commodity} from '../../models/commodity';
 
 /**
  * Generated class for the ProduceDetailsPage page.
@@ -14,11 +16,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProduceDetailsPage {
 
-
+  commodities:commodity[]
   product:string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams ,private commodityService : CommodityProvider) {
     this.product = navParams.get('product');
+    commodityService.loadDetails(this.product).subscribe(commodities=> {
+      this.commodities= commodities;
+      console.log(commodities)
+    })
   }
 
   ionViewDidLoad() {

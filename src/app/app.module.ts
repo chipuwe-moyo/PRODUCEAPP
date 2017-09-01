@@ -24,10 +24,12 @@ import {ProduceDetailsPage } from "../pages/produce-details/produce-details";
 import{Http, HttpModule} from '@angular/http';
 import {AuthService} from "./auth.service";
 
+
 import {Transfer} from '@ionic-native/transfer';
 import {FilePath} from '@ionic-native/file-path';
 import {Camera} from '@ionic-native/camera';
 import { CommodityProvider } from '../providers/commodity/commodity';
+import { FarmersProvider } from '../providers/farmers/farmers';
 
 
 
@@ -85,6 +87,7 @@ import { CommodityProvider } from '../providers/commodity/commodity';
     FilePath,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CommodityProvider,
+    FarmersProvider,
 
   ]
 })

@@ -17,7 +17,7 @@ import {AuthService} from "../../app/auth.service";
 })
 export class LoginPage {
 
-
+loading=false;
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService : AuthService) {
@@ -29,15 +29,22 @@ export class LoginPage {
 
 
 onLogin(form: NgForm){
+    this.loading =true;
     this.authService.login(form.value.username, form.value.password)
-      .subscribe(result =>{
-        if(result===true){
-          this.navCtrl.setRoot(HomePage);
-        }else {
+      .subscribe(
+        tokenData=>{ console.log(tokenData);
+        this.navCtrl.setRoot(HomePage);
 
-          alert('make sure that your credentials are correct');
+
+        },
+        error  => {
+          console.log(error);
+          this.loading =false;
         }
-      });
+
+             // this.navCtrl.setRoot(HomePage);
+
+       );
 
 
    }

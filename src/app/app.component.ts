@@ -14,7 +14,7 @@ import {MyProducePage} from "../pages/my-produce/my-produce";
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = MyProducePage;
+  rootPage:any = LoginPage;
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

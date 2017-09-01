@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {user} from '../../models/user';
+import {FarmersProvider} from "../../providers/farmers/farmers";
 
 /**
  * Generated class for the FarmersPage page.
@@ -12,9 +14,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-farmers',
   templateUrl: 'farmers.html',
 })
-export class FarmersPage {
+export class FarmersPage implements OnInit{
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  users:user[]
+
+  ngOnInit(){
+    this.farmersService.getFarmer().subscribe((users: user[]) => {
+      this.users = users;
+    });
+  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public  farmersService:FarmersProvider) {
   }
 
   ionViewDidLoad() {
