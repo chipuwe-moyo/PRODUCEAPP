@@ -14,68 +14,61 @@
 
 
 <ion-content padding>
+
+  <form  role="form" (ngSubmit)="onRegister(f)" #f="ngForm" >
 <ion-item>
     <ion-label color="primary" stacked>Firstname</ion-label>
-    <ion-input type="text" placeholder="enter firstname"></ion-input>
+    <ion-input id="first_name" type="text" placeholder="enter firstname" [(ngModel)]="first_name"  name="first_name"  class="form-control" required ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Lastname</ion-label>
-    <ion-input type="text" placeholder=" enter lastname"></ion-input>
+    <ion-input id="last_name" type="text" placeholder=" enter lastname"[(ngModel)]="last_name" name="last_name" class="form-control" required ></ion-input>
   </ion-item>
 
 <ion-item>
     <ion-label color="primary" stacked>Username</ion-label>
-    <ion-input type="email" placeholder="enter username"></ion-input>
+    <ion-input id="username" type="text" placeholder="enter username" [(ngModel)]="username" name="username" class="form-control" required ></ion-input>
   </ion-item>
 
- 
+
  <ion-item>
     <ion-label color="primary" stacked>Email</ion-label>
-    <ion-input type="email" placeholder="enter email"></ion-input>
+    <ion-input id="Email" type="email" placeholder="enter email" [(ngModel)]="Email"  class="form-control" name="email" required></ion-input>
   </ion-item>
 
  <ion-item>
     <ion-label color="primary" stacked>Password</ion-label>
-    <ion-input type="password" placeholder=" enter password"></ion-input>
+    <ion-input id="Password" type="password" placeholder=" enter password" [(ngModel)]="Password"   name="password"  class="form-control" required></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label color="primary" stacked>Password</ion-label>
-    <ion-input type="password" placeholder=" enter password"></ion-input>
-  </ion-item>
+
+
 <ion-item>
     <ion-label color="primary" stacked>Phone Number</ion-label>
-    <ion-input [(ngModel)]="phone_number" type="tel" placeholder="enter phone number"></ion-input>
+    <ion-input id="phone_number" [(ngModel)]="phone_number" type="tel" placeholder="enter phone number"  name="phone_number"   class="form-control"  required></ion-input>
   </ion-item>
 
 <ion-item>
     <ion-label color="primary" stacked>Street Address</ion-label>
-    <ion-input [(ngModel)]="street_address" type="text" placeholder="enter street Address"></ion-input>
+    <ion-input id="street_address" [(ngModel)]="street_address" type="text" placeholder="enter street Address" name="street_address"  class="form-control" required ></ion-input>
   </ion-item>
 
   <ion-item>
   <ion-label  color="primary">city</ion-label>
-  <ion-select [(ngModel)]="city">
-    <ion-option >lusaka</ion-option>
-    <ion-option >chipata</ion-option>
-     <ion-option >mbala</ion-option>
-      <ion-option >kitwe</ion-option>
-       <ion-option >monze</ion-option>
-  </ion-select>
+    <ion-input id="city" [(ngModel)]="city" type="text" placeholder="city"  class="form-control"  name="city" required ></ion-input>
 </ion-item>
+
+    <ion-item>
+      <ion-label  color="primary">province</ion-label>
+      <ion-input id="province" [(ngModel)]="province" type="text" placeholder="province"  class="form-control"  name="province" required ></ion-input>
+    </ion-item>
 
 <ion-item >
   <ion-label color="primary">Country</ion-label>
-  <ion-select [(ngModel)]="country">
-    <ion-option >Zambia</ion-option>
-    <ion-option >Angola</ion-option>
-     <ion-option>Tazania</ion-option>
-      <ion-option >Botswana</ion-option>
-       <ion-option>Mali</ion-option>
-  </ion-select>
+  <ion-input id="country" [(ngModel)]="country" type="text" placeholder="country"  class="form-control"  name="country" required></ion-input>
 </ion-item>
 
-  <button ion-button full outline  style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block> Register</button>
+  <button type="submit" ion-button full outline  style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block> Register</button>
 
-
+  </form>
 </ion-content>

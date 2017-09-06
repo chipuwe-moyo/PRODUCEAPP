@@ -33,6 +33,7 @@ onLogin(form: NgForm){
     this.authService.login(form.value.username, form.value.password)
       .subscribe(
         tokenData=>{ console.log(tokenData);
+
         this.navCtrl.setRoot(HomePage);
 
 

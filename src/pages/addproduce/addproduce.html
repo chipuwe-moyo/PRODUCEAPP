@@ -14,44 +14,47 @@
 
 
 <ion-content padding style="background-color:#71EC6B;">
-<form (ngSubmit)="postRequest()">
+<form role="form" #f="ngForm"  (ngSubmit)="postRequest(f)">
   <ion-item>
     <ion-label color="primary" stacked>Product</ion-label>
-    <ion-input type="text" placeholder="" name="Product"  [(ngModel)]="Product"></ion-input>
+    <ion-input type="text" class="form-control" placeholder="" name="Product"  [(ngModel)]="Product"></ion-input>
   </ion-item>
 
   <ion-item>
-  <ion-label color="primary" stacked>Description</ion-label>
-  <ion-input type="text" placeholder="" name="Description" [(ngModel)]="Description" ></ion-input>
-</ion-item>
+    <ion-label color="primary" stacked>Description</ion-label>
+    <ion-input type="text" class="form-control" placeholder="" name="Description"  [(ngModel)]="Description"></ion-input>
+  </ion-item>
+
+
+
   <ion-item>
     <ion-label color="primary" stacked>Price</ion-label>
-    <ion-input type="text" placeholder="" name="Price" [(ngModel)]="Price" ></ion-input>
+    <ion-input type="number"  class="form-control" placeholder="" name="Price" [(ngModel)]="Price" ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Quantity</ion-label>
-    <ion-input type="text" placeholder="" name="Quality"  [(ngModel)]="Quality"></ion-input>
+    <ion-input type="number" class="form-control" placeholder="" name="Quality"  [(ngModel)]="Quality"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Metric</ion-label>
-    <ion-input type="text" placeholder="" name="Metric"  [(ngModel)]="Metric"></ion-input>
+    <ion-input type="text" class="form-control"  placeholder="" name="Metric"  [(ngModel)]="Metric"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Town</ion-label>
-    <ion-input type="text" placeholder=""  name="Town"  [(ngModel)]="Town"></ion-input>
+    <ion-input type="text" class="form-control" placeholder=""  name="Town"  [(ngModel)]="Town"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Province</ion-label>
-    <ion-input type="text" placeholder="" name="Province"  [(ngModel)]="Province"></ion-input>
+    <ion-input type="text"  class="form-control"  placeholder="" name="Province"  [(ngModel)]="Province"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Country</ion-label>
-    <ion-input type="text" placeholder="" name="Country" [(ngModel)]="Country"></ion-input>
+    <ion-input type="text" class="form-control" placeholder="" name="Country" [(ngModel)]="Country"></ion-input>
   </ion-item>
 
 

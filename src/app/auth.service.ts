@@ -39,4 +39,29 @@ export class AuthService {
   loggedIn() {
     return tokenNotExpired();
   }
+
+
+  register(first_name: string,
+           last_name: string,
+           username: string,
+           password: string,
+           street_address: string,
+           city: string,
+           province: string,
+           country: string,
+           email: string,
+           phone_number: string) {
+    return this.http.post('http://localhost:8000/api/auth/register', {
+      first_name: first_name,
+      last_name: last_name,
+      username: username,
+      password: password,
+      street_address: street_address,
+      city: city,
+      province: province,
+      country: country,
+      email: email,
+      phone_number: phone_number
+    });
+  }
 }

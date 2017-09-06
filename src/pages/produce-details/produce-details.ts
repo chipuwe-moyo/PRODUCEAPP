@@ -23,10 +23,10 @@ export class ProduceDetailsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams ,private commodityService : CommodityProvider) {
     this.product = navParams.get('product');
-    commodityService.loadDetails(this.product).subscribe(commodities=> {
-      this.commodities= commodities;
-      console.log(commodities)
-    })
+   // commodityService.addCommodity(this.product).subscribe(commodities=> {
+    //  this.commodities= commodities;
+      //console.log(commodities)
+   // })
   }
 
   ionViewDidLoad() {
