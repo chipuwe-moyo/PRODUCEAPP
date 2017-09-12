@@ -9,12 +9,13 @@ import { ProducePage } from '../pages/produce/produce';
 import {DashboardPage} from '../pages/dashboard/dashboard';
 import {MyProducePage} from "../pages/my-produce/my-produce";
 import {RegisterPage} from '../pages/register/register';
+import {AddproducePage} from "../pages/addproduce/addproduce";
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = RegisterPage;
+  rootPage:any = StartPage;
 
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {

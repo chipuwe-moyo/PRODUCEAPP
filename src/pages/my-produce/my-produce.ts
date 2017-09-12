@@ -18,26 +18,48 @@ import {ProduceDetailsPage} from "../produce-details/produce-details";
   templateUrl: 'my-produce.html',
 })
 export class MyProducePage implements OnInit {
+  query: string;
+  commodities: commodity[]
+  orgcommodities: commodity[]
 
-  commodities:commodity[]
-
-  ngOnInit(){
+  ngOnInit() {
     this.commodityService.getCommodity().subscribe((commodities: commodity[]) => {
       this.commodities = commodities;
     });
+
+
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,  private commodityService : CommodityProvider) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams, public commodityService: CommodityProvider) {
+    this.orgcommodities = this.commodities;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyProducePage');
   }
-  addproduce(){
+
+  addproduce() {
     this.navCtrl.push(AddproducePage);
   }
-  goToDetails(product: string) {
-    this.navCtrl.push(ProduceDetailsPage, {product});
+
+  goToDetails(id: number) {
+    this.navCtrl.push(ProduceDetailsPage, {id});
+  }
+
+  search(searchEvent) {
+    let query = searchEvent.target.value
+    // We will only perform the search if we have 3 or more characters
+    if (query.trim() === '' || query.trim().length < 3) {
+      // Load cached users
+      this.commodities = this.orgcommodities;
+    } else {
+      // Get the searched users from github
+      this.commodityService.search(query).subscribe(commodities => {
+        this.commodities = commodities
+      });
+
+    }
+
+
   }
 }

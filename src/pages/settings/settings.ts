@@ -3,11 +3,13 @@ import { NavController } from 'ionic-angular';
 import {PersonalSettingsPage} from "../personal-settings/personal-settings";
 import {AboutPage} from "../about/about";
 import {LoginPage} from "../login/login";
+import {StartPage} from "../start/start";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
 })
 export class SettingsPage {
+
 
   constructor(public navCtrl: NavController) {
 
@@ -27,7 +29,7 @@ export class SettingsPage {
 
   goToLogin(){
 
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(StartPage);
   }
 }
 

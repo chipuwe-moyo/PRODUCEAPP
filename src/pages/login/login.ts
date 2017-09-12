@@ -34,7 +34,7 @@ onLogin(form: NgForm){
       .subscribe(
         tokenData=>{ console.log(tokenData);
 
-        this.navCtrl.setRoot(HomePage);
+
 
 
         },
@@ -47,7 +47,8 @@ onLogin(form: NgForm){
 
        );
 
-
+  //this.navCtrl.setRoot(HomePage);
+  form.reset();
    }
 }
 

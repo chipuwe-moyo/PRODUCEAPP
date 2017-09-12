@@ -1,5 +1,6 @@
 export interface commodity{
-	
+  id:number;
+
 product:string;
 description:string;
 price:number;

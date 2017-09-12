@@ -4,6 +4,9 @@ import {Http, Headers,RequestOptions} from '@angular/http';
 import {NgForm} from "@angular/forms";
 import {MyProducePage} from "../my-produce/my-produce";
 import { CommodityProvider } from '../../providers/commodity/commodity';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 /**
  * Generated class for the AddproducePage page.
@@ -18,12 +21,13 @@ import { CommodityProvider } from '../../providers/commodity/commodity';
 })
 export class AddproducePage implements OnInit{
 
+  public base64Image: string;
 
   ngOnInit() {
   }
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,public commodityService: CommodityProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http:Http,public commodityService: CommodityProvider, private camera: Camera, private transfer: Transfer, private filePath: FilePath) {
   }
 
   ionViewDidLoad() {
@@ -39,8 +43,7 @@ export class AddproducePage implements OnInit{
       form.value.metric,
       form.value.town,
       form.value.province,
-      form.value.country
-    )
+      form.value.country)
       .subscribe(
         () => alert("Commodity Created")
       );

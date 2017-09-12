@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from '../../models/commodity';
-
+import {EditcommodityPage} from "../editcommodity/editcommodity";
 /**
  * Generated class for the ProduceDetailsPage page.
  *
@@ -14,23 +14,41 @@ import {commodity} from '../../models/commodity';
   selector: 'page-produce-details',
   templateUrl: 'produce-details.html',
 })
-export class ProduceDetailsPage {
-
-  commodities:commodity[]
+export class ProduceDetailsPage implements OnInit {
+  commodity:commodity;
   product:string;
+  id:number;
 
-
+  ngOnInit(){
+    this.id = this.navParams.get('id');
+    this.commodityService.getCommodityInfo(this.id).subscribe(commodity => {
+      this.commodity = commodity;
+console.log(commodity);
+    })
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams ,private commodityService : CommodityProvider) {
-    this.product = navParams.get('product');
-   // commodityService.addCommodity(this.product).subscribe(commodities=> {
-    //  this.commodities= commodities;
-      //console.log(commodities)
-   // })
+
+
   }
+
+  //onDeleted(commodity: commodity) {
+   // const position = this.commodity.findIndex(
+    //  (commodityEl: commodity) => {
+      //  return commodityEl.id == commodity.id;
+     // }
+  //  );
+  //  this.commodity.splice(position, 1);
+//  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProduceDetailsPage');
   }
+
+  edit(commodity){
+
+    this.navCtrl.push(EditcommodityPage, {commodity: commodity});
+  }
+
 
 }

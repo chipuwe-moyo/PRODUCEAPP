@@ -17,47 +17,49 @@
 <form role="form" #f="ngForm"  (ngSubmit)="postRequest(f)">
   <ion-item>
     <ion-label color="primary" stacked>Product</ion-label>
-    <ion-input type="text" class="form-control" placeholder="" name="Product"  [(ngModel)]="Product"></ion-input>
+    <ion-input type="text" id="product" class="form-control" placeholder="" name="product"  [(ngModel)]="product"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Description</ion-label>
-    <ion-input type="text" class="form-control" placeholder="" name="Description"  [(ngModel)]="Description"></ion-input>
+    <ion-input type="text" id="description"  class="form-control" placeholder="" name="description"  [(ngModel)]="description"></ion-input>
   </ion-item>
 
 
 
   <ion-item>
     <ion-label color="primary" stacked>Price</ion-label>
-    <ion-input type="number"  class="form-control" placeholder="" name="Price" [(ngModel)]="Price" ></ion-input>
+    <ion-input type="number"  id="price"  class="form-control" placeholder="" name="price" [(ngModel)]="price" ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Quantity</ion-label>
-    <ion-input type="number" class="form-control" placeholder="" name="Quality"  [(ngModel)]="Quality"></ion-input>
+    <ion-input type="number" id="quantity"  class="form-control" placeholder="" name="quality"  [(ngModel)]="quality"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Metric</ion-label>
-    <ion-input type="text" class="form-control"  placeholder="" name="Metric"  [(ngModel)]="Metric"></ion-input>
+    <ion-input type="text" id="metric" class="form-control"  placeholder="" name="metric"  [(ngModel)]="metric"></ion-input>
   </ion-item>
+
 
   <ion-item>
     <ion-label color="primary" stacked>Town</ion-label>
-    <ion-input type="text" class="form-control" placeholder=""  name="Town"  [(ngModel)]="Town"></ion-input>
+    <ion-input type="text" id="town" class="form-control" placeholder=""  name="town"  [(ngModel)]="town"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Province</ion-label>
-    <ion-input type="text"  class="form-control"  placeholder="" name="Province"  [(ngModel)]="Province"></ion-input>
+    <ion-input type="text"  id="province"  class="form-control"  placeholder="" name="province"  [(ngModel)]="province"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Country</ion-label>
-    <ion-input type="text" class="form-control" placeholder="" name="Country" [(ngModel)]="Country"></ion-input>
+    <ion-input type="text"  id="country" class="form-control" placeholder="" name="country" [(ngModel)]="country"></ion-input>
   </ion-item>
-
-
-  <button ion-button full outline  style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block > upload </button>
+  <ion-item>
+    <ion-input type="file" class="form-control" name="photo" id="photo" [(ngModel)]="photo" accept=".jpg,.png"></ion-input>
+    </ion-item>
+  <button ion-button full outline  style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type="submit" > upload </button>
 </form>
 </ion-content>

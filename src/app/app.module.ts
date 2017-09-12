@@ -13,6 +13,7 @@ import {DashboardPage} from '../pages/dashboard/dashboard';
 import {FavoritesPage} from '../pages/favorites/favorites';
 import {MyProducePage} from "../pages/my-produce/my-produce";
 import {FarmersPage} from'../pages/farmers/farmers';
+import {EditcommodityPage} from'../pages/editcommodity/editcommodity';
 import {StartPage} from'../pages/start/start';
 import {SidemenuPage} from'../pages/sidemenu/sidemenu';
 import {RegisterPage} from'../pages/register/register';
@@ -30,6 +31,7 @@ import {FilePath} from '@ionic-native/file-path';
 import {Camera} from '@ionic-native/camera';
 import { CommodityProvider } from '../providers/commodity/commodity';
 import { FarmersProvider } from '../providers/farmers/farmers';
+import { LikeProvider } from '../providers/like/like';
 
 
 
@@ -51,7 +53,8 @@ import { FarmersProvider } from '../providers/farmers/farmers';
     SettingsPage,
     AboutPage,
     AddproducePage,
-    ProduceDetailsPage
+    ProduceDetailsPage,
+    EditcommodityPage
   ],
   imports: [
     BrowserModule,
@@ -76,7 +79,8 @@ import { FarmersProvider } from '../providers/farmers/farmers';
     SettingsPage,
     AboutPage,
     AddproducePage,
-    ProduceDetailsPage
+    ProduceDetailsPage,
+    EditcommodityPage
   ],
   providers: [
     AuthService,
@@ -88,6 +92,7 @@ import { FarmersProvider } from '../providers/farmers/farmers';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     CommodityProvider,
     FarmersProvider,
+    LikeProvider,
 
   ]
 })

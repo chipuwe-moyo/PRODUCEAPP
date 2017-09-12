@@ -9,17 +9,14 @@
  <ion-navbar >
 
    DASHBOARD
-   <ion-buttons start>
-     <button ion-button icon-only on-click="goToHome()">
-       <ion-icon name="arrow-back"></ion-icon>
-     </button>
-   </ion-buttons>
+   <ion-searchbar> placeholder= "search farmers or produce" (ionInput)="filterItems($event)</ion-searchbar>
+
  </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding style="background-color:#71EC6B;">
+<ion-content padding style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;">
 
   <ion-list id="dashboard-list5">
     <ion-item color="none" id="dashboard-list-item30">
@@ -27,7 +24,7 @@
         <img />
       </ion-avatar>
       <h2>
-        Item
+       g_chipili
       </h2>
     </ion-item>
     <ion-item color="none" (click) ="goToMyproduce()" id="dashboard-list-item18">

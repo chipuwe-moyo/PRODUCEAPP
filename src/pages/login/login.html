@@ -16,7 +16,7 @@
 </ion-header>
 
 
-<ion-content padding style="background-image: url('https://unsplash.it/500?image=915');" >
+<ion-content padding style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;" >
 <form (ngSubmit)="onLogin(f)" #f="ngForm">
 
 <ion-item>
@@ -29,6 +29,6 @@
     <ion-input type="password" placeholder=" enter password"  name="password" ngModel="password"></ion-input>
   </ion-item>
 
-  <button ion-button full outline  style="border-color:blue;border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type= "submit"> LOGIN</button>
+  <button ion-button full outline  style="border-color:blue;border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type= "submit" [disabled]="!f.valid"> LOGIN</button>
   </form>
 </ion-content>

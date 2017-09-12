@@ -29,7 +29,7 @@ export class HomePage {
 
   goToDashboard(){
 
-   	this.navCtrl.setRoot(DashboardPage);
+   	this.navCtrl.push(DashboardPage);
    }
 
   goToProduce(){

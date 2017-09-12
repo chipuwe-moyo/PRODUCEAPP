@@ -29,7 +29,7 @@ export class CommodityProvider {
   getApiUrl : "http://localhost:8000/api/commodity/info";
 //
 
-  addCommodity(product: number,
+  addCommodity(product: string,
                description:string,
               price: number,
               quantity: number,
@@ -54,6 +54,10 @@ export class CommodityProvider {
     }
   }
 
+  getCommodityInfo(id: number): Observable<commodity> {
+    return this.http.get('http://localhost:8000/api/commodity/info/'+id)
+      .map((res: Response) => {return res.json().commodity;})
+  }
 
   deleteCommodity(id: number) {
     const token = this.authService.getToken();
@@ -62,5 +66,37 @@ export class CommodityProvider {
   constructor(public http: Http,public authService:AuthService) {
     console.log('Hello CommodityProvider Provider');
   }
+  public query: string;
 
+  search(query: string): Observable<commodity[]> {
+
+    return this.http.get('http://localhost:8000/api/search?q=' + query)
+      .map(
+        (response: Response) => {
+          return response.json().commodities;
+        }
+      );
+  }
+
+
+  updateCommodity(id: number,
+                  newProduct: number,
+                  newDescription: string,
+                  newPrice: number,
+                  newQuantity: number,
+                  newMetric: string) {
+    const token = this.authService.getToken();
+    const body = JSON.stringify({
+      product: newProduct,
+      description: newDescription,
+      price: newPrice,
+      quantity: newQuantity,
+      metric: newMetric
+    });
+    const headers = new Headers({'Content-Type': 'application/json'});
+    return this.http.put('http://localhost:8000/api/commodity/' + id + '?token=' + token, body, {headers: headers})
+      .map(
+        (response: Response) => response.json()
+      );
+  }
 }

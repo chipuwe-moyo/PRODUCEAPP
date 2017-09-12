@@ -7,12 +7,53 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{product}}details</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="edit(commodity)">
+        <ion-icon name="create"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <button ion-button icon-only on-click="ondeleted()">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{commodity?.product}}details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content  padding>
 
+  <ion-list>
+    <ion-item>
+      <ion-label>Description</ion-label>
+      <ion-badge item-right>{{commodity?.description}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Price</ion-label>
+      <ion-badge item-right>{{commodity?.price}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Quantity</ion-label>
+      <ion-badge item-right>{{commodity?.quantity}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Metric</ion-label>
+      <ion-badge item-right>{{commodity?.metric}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Town</ion-label>
+      <ion-badge item-right>{{commodity?.town}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Province</ion-label>
+      <ion-badge item-right>{{commodity?.province}}</ion-badge>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country</ion-label>
+      <ion-badge item-right>{{commodity?.country}}</ion-badge>
+    </ion-item>
+  </ion-list>
 </ion-content>
