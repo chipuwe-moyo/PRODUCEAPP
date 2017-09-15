@@ -36,6 +36,7 @@ export class AddproducePage implements OnInit{
 
   postRequest(form: NgForm){
     this.commodityService.addCommodity(
+      form.value.photo,
       form.value.product,
       form.value.description,
       form.value.price,

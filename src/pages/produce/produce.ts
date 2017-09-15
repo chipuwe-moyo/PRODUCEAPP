@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from '../../models/commodity';
+import {ProduceDetailsPage} from "../produce-details/produce-details";
+import {CommoditydetailsPage} from "../commoditydetails/commoditydetails";
 /**
  * Generated class for the ProducePage page.
  *
@@ -15,6 +17,8 @@ import {commodity} from '../../models/commodity';
 })
 export class ProducePage implements OnInit {
 
+
+id: number;
   commodities:commodity[]
   ngOnInit(){
     this.commodityService.getCommodity().subscribe((commodities: commodity[]) => {
@@ -37,5 +41,8 @@ export class ProducePage implements OnInit {
 
 
 
+  goToDetails(id: number) {
+    this.navCtrl.push(CommoditydetailsPage, {id});
+  }
 
 }

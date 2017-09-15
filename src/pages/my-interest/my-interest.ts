@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AuthService} from "../../app/auth.service";
+import {UserProvider} from "../../providers/user/user";
+import {CommodityProvider} from "../../providers/commodity/commodity";
+import {commodity} from "../../models/commodity";
 
 /**
  * Generated class for the MyInterestPage page.
@@ -12,9 +16,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-my-interest',
   templateUrl: 'my-interest.html',
 })
-export class MyInterestPage {
+export class MyInterestPage implements OnInit{
+  notification: any;
+  commodity: commodity;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ngOnInit() {
+    this.notification = this.userService.notification;
+    this.commodityService.getCommodityInfo(this.notification.data.commodity_id)
+      .subscribe(commodity => this.commodity = commodity);
+  }
+
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authservice: AuthService,public userService: UserProvider,public commodityService:CommodityProvider) {
   }
 
   ionViewDidLoad() {

@@ -32,7 +32,9 @@ import {Camera} from '@ionic-native/camera';
 import { CommodityProvider } from '../providers/commodity/commodity';
 import { FarmersProvider } from '../providers/farmers/farmers';
 import { LikeProvider } from '../providers/like/like';
-
+import {NotificationPage} from '../pages/notification/notification';
+import {CommoditydetailsPage} from '../pages/commoditydetails/commoditydetails';
+import { UserProvider } from '../providers/user/user';
 
 
 @NgModule({
@@ -54,7 +56,10 @@ import { LikeProvider } from '../providers/like/like';
     AboutPage,
     AddproducePage,
     ProduceDetailsPage,
-    EditcommodityPage
+    EditcommodityPage,
+    NotificationPage,
+    CommoditydetailsPage
+
   ],
   imports: [
     BrowserModule,
@@ -80,7 +85,9 @@ import { LikeProvider } from '../providers/like/like';
     AboutPage,
     AddproducePage,
     ProduceDetailsPage,
-    EditcommodityPage
+    EditcommodityPage,
+    NotificationPage,
+    CommoditydetailsPage
   ],
   providers: [
     AuthService,
@@ -93,6 +100,7 @@ import { LikeProvider } from '../providers/like/like';
     CommodityProvider,
     FarmersProvider,
     LikeProvider,
+    UserProvider,
 
   ]
 })

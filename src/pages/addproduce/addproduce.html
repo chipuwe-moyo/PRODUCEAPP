@@ -15,6 +15,11 @@
 
 <ion-content padding style="background-color:#71EC6B;">
 <form role="form" #f="ngForm"  (ngSubmit)="postRequest(f)">
+
+  <ion-item>
+    <ion-label >Photo</ion-label>
+    <ion-input type="file" id="photo" class="form-control" placeholder="" name="photo"  [(ngModel)]="photo"></ion-input>
+  </ion-item>
   <ion-item>
     <ion-label color="primary" stacked>Product</ion-label>
     <ion-input type="text" id="product" class="form-control" placeholder="" name="product"  [(ngModel)]="product"></ion-input>
@@ -34,7 +39,7 @@
 
   <ion-item>
     <ion-label color="primary" stacked>Quantity</ion-label>
-    <ion-input type="number" id="quantity"  class="form-control" placeholder="" name="quality"  [(ngModel)]="quality"></ion-input>
+    <ion-input type="number" id="quantity"  class="form-control" placeholder="" name="quantity"  [(ngModel)]="quantity"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -57,9 +62,9 @@
     <ion-label color="primary" stacked>Country</ion-label>
     <ion-input type="text"  id="country" class="form-control" placeholder="" name="country" [(ngModel)]="country"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-input type="file" class="form-control" name="photo" id="photo" [(ngModel)]="photo" accept=".jpg,.png"></ion-input>
-    </ion-item>
+  <!--<ion-item>-->
+    <!--<ion-input type="file" class="form-control" name="photo" id="photo" [(ngModel)]="photo" accept=".jpg,.png"></ion-input>-->
+    <!--</ion-item>-->
   <button ion-button full outline  style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type="submit" > upload </button>
 </form>
 </ion-content>

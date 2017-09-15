@@ -8,7 +8,7 @@
 
   <ion-navbar>
     <ion-buttons end>
-      <button ion-button icon-only (click)="edit(commodity)">
+      <button ion-button icon-only on-click="edit(commodity)">
         <ion-icon name="create"></ion-icon>
       </button>
     </ion-buttons>
@@ -27,6 +27,7 @@
 <ion-content  padding>
 
   <ion-list>
+    <ion-img>{{commodity?.photo}}</ion-img>
     <ion-item>
       <ion-label>Description</ion-label>
       <ion-badge item-right>{{commodity?.description}}</ion-badge>

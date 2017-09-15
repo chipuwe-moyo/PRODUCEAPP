@@ -9,11 +9,16 @@
 <ion-content  style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;">
   <ion-list>
     <ion-searchbar (input)="search($event)"></ion-searchbar>
-    <ion-item *ngFor="let commodity of commodities">
+    <ion-item-sliding *ngFor="let commodity of commodities" on-click="goToDetails(commodity.id)">
+      <ion-item>
       <h2>{{ commodity.product }} </h2>
       <p> {{commodity.description}}</p>
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </ion-item>
+    <ion-item-options>
+      <button color="danger"  on-click="remove(commodities)"><ion-icon trash>Delete</ion-icon></button>
+    </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
 

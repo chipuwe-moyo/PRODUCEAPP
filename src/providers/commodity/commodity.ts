@@ -36,7 +36,8 @@ export class CommodityProvider {
               metric: string,
               town: string,
               province: string,
-              country: string) {
+              country: string,
+              photo:any) {
     {
       const token = this.authService.getToken();
       const body = JSON.stringify({
@@ -47,26 +48,36 @@ export class CommodityProvider {
         metric: metric,
         town: town,
         province: province,
-        country: country
+        country: country,
+        photo :photo
       });
       const headers = new Headers({'Content-Type': 'application/json'});
       return this.http.post('http://localhost:8000/api/commodity/store?token=' + token, body, {headers: headers});
     }
   }
 
+
   getCommodityInfo(id: number): Observable<commodity> {
     return this.http.get('http://localhost:8000/api/commodity/info/'+id)
       .map((res: Response) => {return res.json().commodity;})
   }
 
+
+
   deleteCommodity(id: number) {
     const token = this.authService.getToken();
     return this.http.delete('http://localhost:8000/api/commodity/' + id + '?token=' + token);
   }
+
+
+
   constructor(public http: Http,public authService:AuthService) {
     console.log('Hello CommodityProvider Provider');
   }
   public query: string;
+
+
+
 
   search(query: string): Observable<commodity[]> {
 
@@ -77,6 +88,7 @@ export class CommodityProvider {
         }
       );
   }
+
 
 
   updateCommodity(id: number,

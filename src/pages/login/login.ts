@@ -47,7 +47,7 @@ onLogin(form: NgForm){
 
        );
 
-  //this.navCtrl.setRoot(HomePage);
+ this.navCtrl.setRoot(HomePage);
   form.reset();
    }
 }

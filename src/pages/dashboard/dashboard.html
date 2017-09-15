@@ -6,10 +6,10 @@
   Ionic pages and navigation.
 -->
 <ion-header>
- <ion-navbar >
+ <ion-navbar  color="green">
 
    DASHBOARD
-   <ion-searchbar> placeholder= "search farmers or produce" (ionInput)="filterItems($event)</ion-searchbar>
+   <!--<ion-searchbar> placeholder= "search farmers or produce" (ionInput)="filterItems($event)</ion-searchbar>-->
 
  </ion-navbar>
 
@@ -24,14 +24,14 @@
         <img />
       </ion-avatar>
       <h2>
-       g_chipili
+
       </h2>
     </ion-item>
     <ion-item color="none" (click) ="goToMyproduce()" id="dashboard-list-item18">
     My Produce
     </ion-item>
     <ion-item color="none" (click) ="goToInterests()" id="dashboard-list-item19">
-      My Interests
+     Notifications
     </ion-item>
     <ion-item color="none" (click) ="goToPersonalsettings()" id="dashboard-list-item20">
       PersonalSettings
