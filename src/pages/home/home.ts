@@ -7,6 +7,7 @@ import {SettingsPage} from "../settings/settings";
 
 
 import { NavController } from 'ionic-angular';
+import {StartPage} from "../start/start";
 
 
 @Component({
@@ -40,5 +41,8 @@ export class HomePage {
 
    	this.navCtrl.push(SettingsPage);
    }
+  logout(){
 
+    this.navCtrl.setRoot(StartPage);
+  }
 }

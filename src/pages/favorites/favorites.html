@@ -15,4 +15,11 @@
 
 <ion-content padding>
 
+<ion-buttons>
+    <button ion-button icon-only on-click="accessGallery()">
+      <ion-icon name="Camera"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <img [src]="base64Image" *ngIf="base64Image" />
 </ion-content>

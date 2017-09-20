@@ -16,8 +16,11 @@ export class AuthService {
   public token : string;
 
   login(username: string, password: string) {
+
+    const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+    let body = 'username=' + username + '&password=' + password ;
     return this.http.post('http://localhost:8000/api/auth/login',
-      {username: username, password: password})
+      body, {headers: headers})
       .map(
         (response: Response) => {
           const token = response.json().token;
@@ -41,6 +44,7 @@ export class AuthService {
   }
 
 
+
   register(first_name: string,
            last_name: string,
            username: string,
@@ -51,17 +55,20 @@ export class AuthService {
            country: string,
            email: string,
            phone_number: string) {
-    return this.http.post('http://localhost:8000/api/auth/register', {
-      first_name: first_name,
-      last_name: last_name,
-      username: username,
-      password: password,
-      street_address: street_address,
-      city: city,
-      province: province,
-      country: country,
-      email: email,
-      phone_number: phone_number
-    });
+    let body = 'first_name='+ first_name +
+      '&last_name=' + last_name +
+      '&username='+ username +
+      '&password='+password +
+      '&street_address='+street_address +
+      '&city='+city+
+      '&province='+province+
+      '&country='+country+
+      '&email='+email+
+      '&phone_number='+phone_number;
+
+    const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
+
+    return this.http.post('http://localhost:8000/api/auth/register',
+      body, {headers: headers});
   }
 }

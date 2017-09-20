@@ -4,6 +4,7 @@ import {AddproducePage} from "../addproduce/addproduce";
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from '../../models/commodity';
 import {ProduceDetailsPage} from "../produce-details/produce-details";
+import {AdditionPage} from "../addition/addition";
 
 
 /**
@@ -23,7 +24,7 @@ export class MyProducePage implements OnInit {
   orgcommodities: commodity[]
 
   ngOnInit() {
-    this.commodityService.getCommodity().subscribe((commodities: commodity[]) => {
+    this.commodityService.getMyCommodities().subscribe((commodities: commodity[]) => {
       this.commodities = commodities;
     });
 
@@ -39,7 +40,7 @@ export class MyProducePage implements OnInit {
   }
 
   addproduce() {
-    this.navCtrl.push(AddproducePage);
+    this.navCtrl.push(AdditionPage);
   }
 
   goToDetails(id: number) {
@@ -49,11 +50,11 @@ export class MyProducePage implements OnInit {
   search(searchEvent) {
     let query = searchEvent.target.value
     // We will only perform the search if we have 3 or more characters
-    if (query.trim() === '' || query.trim().length < 3) {
+    if (query.trim() === '' || query.trim().length < 4) {
       // Load cached users
       this.commodities = this.orgcommodities;
     } else {
-      // Get the searched users from github
+      //Get the searched users from github
       this.commodityService.search(query).subscribe(commodities => {
         this.commodities = commodities
       });

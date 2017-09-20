@@ -8,7 +8,7 @@
 <ion-header>
  <ion-navbar  color="green">
 
-   DASHBOARD
+  <ion-title center text-center> DASHBOARD</ion-title>
    <!--<ion-searchbar> placeholder= "search farmers or produce" (ionInput)="filterItems($event)</ion-searchbar>-->
 
  </ion-navbar>
@@ -16,28 +16,45 @@
 </ion-header>
 
 
-<ion-content padding style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;">
+<ion-content fullscreen style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;">
 
-  <ion-list id="dashboard-list5">
-    <ion-item color="none" id="dashboard-list-item30">
-      <ion-avatar item-left>
-        <img />
-      </ion-avatar>
-      <h2>
+  <ion-card id="home-card23" >
 
-      </h2>
-    </ion-item>
+      <!--<div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">-->
+      <!--<i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>-->
+      <!--</div>-->
+
+      <img style="border-image-width: 100%" src="assets/img/farmer.jpg" />
+
+
+
+  </ion-card>
+
+  <ion-list id="dashboard-list5"  style="border-width:thick">
+
+
+
+
     <ion-item color="none" (click) ="goToMyproduce()" id="dashboard-list-item18">
+
+      <ion-avatar item-left>
+      <img src="assets\img\go2aLG1WQhqnedPYPCgk_freshveg.jpg"/>
+    </ion-avatar>
     My Produce
     </ion-item>
     <ion-item color="none" (click) ="goToInterests()" id="dashboard-list-item19">
+      <ion-icon name="mail" item-left></ion-icon>
      Notifications
     </ion-item>
     <ion-item color="none" (click) ="goToPersonalsettings()" id="dashboard-list-item20">
+      <ion-icon name="settings" item-left></ion-icon>
       PersonalSettings
     </ion-item>
   </ion-list>
 
+  <ion-footer >
 
+    <ion-toolbar ></ion-toolbar>
+  </ion-footer>
 
 </ion-content>

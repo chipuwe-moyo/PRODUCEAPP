@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {AuthService} from "../../app/auth.service";
 import { UserProvider } from '../../providers/user/user';
 import {AddproducePage} from "../addproduce/addproduce";
 import {NgForm} from "@angular/forms";
 import {commodity} from '../../models/commodity';
 import{notification} from'../../models/notification';
+import {CommodityProvider} from "../../providers/commodity/commodity";
+import {ProducePage} from "../produce/produce";
 /**
  * Generated class for the NotificationPage page.
  *
@@ -17,15 +19,21 @@ import{notification} from'../../models/notification';
   selector: 'page-notification',
   templateUrl: 'notification.html',
 })
-export class NotificationPage {
+export class NotificationPage implements OnInit {
 
   commodity: commodity;
+  id:number;
 
-  OnInit(){
+  ngOnInit(){
+    this.id = this.navParams.get('id');
+    this.commodityService.getCommodityInfo(this.id).subscribe(commodity => {
+      this.commodity = commodity;
+      console.log(commodity);
 
-this.navCtrl.push(AddproducePage);
+
+    })
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams,public authService : AuthService,public userService: UserProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public authService : AuthService,public userService: UserProvider, public commodityService:CommodityProvider,public alertCtrl:AlertController, public viewCtrl:ViewController) {
   }
 
   ionViewDidLoad() {
@@ -34,7 +42,39 @@ this.navCtrl.push(AddproducePage);
   onNotify(form: NgForm) {
     this.userService.notifyUser(this.commodity.id, form.value.message, form.value.recipient)
       .subscribe(
-        () => alert(this.commodity.user_id + " has been notified on " + this.commodity.product)
+
+        ()=>{
+          let alert = this.alertCtrl.create({
+            title: this.commodity.user_id + " has been notified on " + this.commodity.product,
+
+            buttons: [
+
+              {
+                text: 'Ok',
+                handler: () => {
+
+
+
+                  console.log('ok clicked');
+                }
+              }
+            ]
+          });
+          alert.present();
+          this.navCtrl.push(ProducePage) .then(() => {
+
+            const index = this.viewCtrl.index;
+
+            for(let i = index; i > 0; i--){
+              this.navCtrl.remove(i);
+            }
+
+          });
+          form.reset();
+
+
+
+        }
       );
   }
 }

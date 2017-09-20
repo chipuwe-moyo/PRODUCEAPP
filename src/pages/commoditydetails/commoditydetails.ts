@@ -33,8 +33,8 @@ export class CommoditydetailsPage implements OnInit{
     console.log('ionViewDidLoad CommoditydetailsPage');
   }
 
-notification(){
+notification(id){
 
-    this.navCtrl.push(NotificationPage);
+    this.navCtrl.push(NotificationPage,{id});
 }
 }

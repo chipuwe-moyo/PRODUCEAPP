@@ -16,16 +16,35 @@
 <ion-content padding  style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;">
 <form role="form" #f="ngForm" (ngSubmit)="onNotify(f)">
 
-  <ion-item>
 
-    <ion-textarea placeholder="Type Your Message"></ion-textarea>
-  </ion-item>
+  <ion-card>
 
-  <ion-input type="hidden" id="recipient" name="recipient" ngModel="{{commodity?.user_id}}"></ion-input>
+    <ion-card-content>
+      <p style="color: darkgreen">Recipient:  {{commodity?.user_id}}</p>
+      <p  style="color: darkgreen">Product:    {{commodity?.product}}</p>
+      <p style="color: darkgreen">Town:       {{commodity?.town}}</p>
+      <p style="color: darkgreen">Province:   {{commodity?.province}}</p>
+      <p style="color: darkgreen"> Country:   {{commodity?.country}}</p>
 
-    <button ion-button round outline  style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type="submit"> Notify</button>
+    </ion-card-content>
+  </ion-card>
 
 
+  <ion-footer >
+
+    <ion-toolbar >
+      <ion-item>
+
+        <ion-textarea placeholder="Type Your Message" type="text" name="message" id="message" ngModel="message"></ion-textarea>
+      </ion-item>
+
+      <ion-input type="hidden" id="recipient" name="recipient" ngModel="{{commodity?.user_id}}"></ion-input>
+
+      <button ion-button round   style="border-color:blue;color:blue; border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type="submit"> Notify</button>
+
+
+    </ion-toolbar>
+  </ion-footer>
 
 
 </form>

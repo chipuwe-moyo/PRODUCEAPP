@@ -36,7 +36,6 @@ export class AddproducePage implements OnInit{
 
   postRequest(form: NgForm){
     this.commodityService.addCommodity(
-      form.value.photo,
       form.value.product,
       form.value.description,
       form.value.price,
@@ -44,7 +43,8 @@ export class AddproducePage implements OnInit{
       form.value.metric,
       form.value.town,
       form.value.province,
-      form.value.country)
+      form.value.country,
+      form.value.photo)
       .subscribe(
         () => alert("Commodity Created")
       );

@@ -16,19 +16,28 @@
 </ion-header>
 
 
-<ion-content padding style="background:url(assets/img/go2aLG1WQhqnedPYPCgk_freshveg.jpg) no-repeat center;background-size:cover;" >
+<ion-content padding style="background:url(assets/img/farmer.jpg) no-repeat center;background-size:cover;" >
 <form (ngSubmit)="onLogin(f)" #f="ngForm">
 
 <ion-item>
     <ion-label color="primary" stacked>Username</ion-label>
-  <ion-input type="text" placeholder="enter username" name="username" ngModel="username"></ion-input>
+  <ion-input type="text" placeholder="" name="username" ngModel="username"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label color="primary" stacked>Password</ion-label>
-    <ion-input type="password" placeholder=" enter password"  name="password" ngModel="password"></ion-input>
+    <ion-input type="password" placeholder=" "  name="password" ngModel="password"></ion-input>
   </ion-item>
 
   <button ion-button full outline  style="border-color:blue;border:1px solid white;margin-top: 20px;height: 35px; font-size:14px;" block type= "submit" [disabled]="!f.valid"> LOGIN</button>
   </form>
-</ion-content>
+<ion-item onclick="passwordreset()">
+  <p style="color: crimson"  >Reset Password</p>
+
+</ion-item>
+  <ion-footer >
+
+    <ion-toolbar color="primary"></ion-toolbar>
+  </ion-footer>
+</ion-content >
+

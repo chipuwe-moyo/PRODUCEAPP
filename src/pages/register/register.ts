@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {NgForm} from '@angular/forms';
 import {AuthService} from "../../app/auth.service";
 import {LoginPage} from "../login/login";
@@ -19,7 +19,7 @@ export class RegisterPage implements OnInit{
   ngOnInit() {
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams ,public authService : AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams ,public authService : AuthService,public alertCtrl:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -39,16 +39,28 @@ export class RegisterPage implements OnInit{
       form.value.phone_number)
       .subscribe(
         () => {
-          this.authService.login(
-            form.value.username,
-            form.value.password)
-            .subscribe(
-              () => {this.navCtrl.pop(LoginPage);}
-            );
+          let alert = this.alertCtrl.create({
+            title: 'Successfully Registered',
+
+            buttons: [
+
+              {
+                text: 'Ok',
+                handler: () => {
+
+
+
+                  console.log('ok clicked');
+                }
+              }
+            ]
+          });
+          alert.present();
+          this.navCtrl.pop(LoginPage);
+          form.reset();
         },
         error => console.log(error)
       );
-    this.navCtrl.pop(LoginPage);
-    form.reset();
+
   }
 }

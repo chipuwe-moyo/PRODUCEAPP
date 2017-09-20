@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from '../../models/commodity';
 import {ProduceDetailsPage} from "../produce-details/produce-details";
@@ -20,6 +20,7 @@ export class ProducePage implements OnInit {
 
 id: number;
   commodities:commodity[]
+  orgcommodities: commodity[]
   ngOnInit(){
     this.commodityService.getCommodity().subscribe((commodities: commodity[]) => {
       this.commodities = commodities;
@@ -32,7 +33,7 @@ id: number;
 
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public commodityService: CommodityProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public commodityService: CommodityProvider,public alertCtrl:AlertController) {
   }
 
   ionViewDidLoad() {
@@ -43,6 +44,49 @@ id: number;
 
   goToDetails(id: number) {
     this.navCtrl.push(CommoditydetailsPage, {id});
+  }
+
+  search(searchEvent) {
+    let query = searchEvent.target.value
+    // We will only perform the search if we have 3 or more characters
+    if (query.trim() === '' || query.trim().length < 4) {
+      // Load cached users
+      this.commodities = this.orgcommodities;
+    } else {
+      //Get the searched users from github
+      this.commodityService.search(query).subscribe(commodities => {
+        this.commodities = commodities
+      },
+        error2 => {
+
+        console.log('no results');
+          let alert = this.alertCtrl.create({
+            title: 'no results!',
+
+            buttons: [
+
+              {
+                text: 'OK',
+                handler: () => {
+
+
+
+                  console.log('ok clicked');
+                }
+              }
+            ]
+          });
+          alert.present();
+          this.navCtrl.pop(ProducePage);
+          searchEvent.reset();
+        }
+
+
+      );
+
+    }
+
+
   }
 
 }

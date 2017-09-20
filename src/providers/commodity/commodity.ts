@@ -26,6 +26,17 @@ export class CommodityProvider {
 
   }
 
+  getMyCommodities(): Observable<commodity[]> {
+    const token = this.authService.getToken();
+    return this.http.get('http://localhost:8000/api/commodity/mine?token=' + token)
+      .map(
+        (response: Response) => {
+          return response.json().commodities;
+        }
+      );
+  }
+
+
   getApiUrl : "http://localhost:8000/api/commodity/info";
 //
 
@@ -37,30 +48,27 @@ export class CommodityProvider {
               town: string,
               province: string,
               country: string,
-              photo:any) {
+              photo:any)
     {
       const token = this.authService.getToken();
-      const body = JSON.stringify({
-        product: product,
-        description:description,
-        price: price,
-        quantity: quantity,
-        metric: metric,
-        town: town,
-        province: province,
-        country: country,
-        photo :photo
-      });
-      const headers = new Headers({'Content-Type': 'application/json'});
+      const body = 'product=' + product +
+        '&description=' + description +
+        '&price=' + price +
+        '&quantity='+ quantity+
+        '&metric=' + metric+
+        '&town=' + town+
+        '&province=' + province+
+        '&country=' + country;
+      const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
       return this.http.post('http://localhost:8000/api/commodity/store?token=' + token, body, {headers: headers});
     }
-  }
 
 
   getCommodityInfo(id: number): Observable<commodity> {
     return this.http.get('http://localhost:8000/api/commodity/info/'+id)
       .map((res: Response) => {return res.json().commodity;})
   }
+
 
 
 

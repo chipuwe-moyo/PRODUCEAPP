@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams} from 'ionic-angular';
 import { HomePage } from '../home/home';
 import {NgForm} from "@angular/forms";
 import {AuthService} from "../../app/auth.service";
+import {ChangepersonalsPage} from "../changepersonals/changepersonals";
 
 /**
  * Generated class for the LoginPage page.
@@ -20,35 +21,76 @@ export class LoginPage {
 loading=false;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService : AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService : AuthService,public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  passwordreset(){
 
+    this.navCtrl.push(ChangepersonalsPage);
+
+  }
 onLogin(form: NgForm){
     this.loading =true;
     this.authService.login(form.value.username, form.value.password)
       .subscribe(
         tokenData=>{ console.log(tokenData);
+          let alert = this.alertCtrl.create({
+            title: 'Logged in!!',
+
+            buttons: [
+
+              {
+                text: 'Ok',
+                handler: () => {
 
 
+
+                  console.log('ok clicked');
+                }
+              }
+            ]
+          });
+          alert.present();
+          this.navCtrl.setRoot(HomePage);
+           form.reset();
 
 
         },
         error  => {
           console.log(error);
-          this.loading =false;
+          let alert = this.alertCtrl.create({
+            title: 'Wrong Credentials!',
+
+            buttons: [
+
+              {
+                text: 'OK',
+                handler: () => {
+
+
+
+                  console.log('ok clicked');
+                }
+              }
+            ]
+          });
+          alert.present();
+
         }
 
              // this.navCtrl.setRoot(HomePage);
 
        );
 
- this.navCtrl.setRoot(HomePage);
-  form.reset();
+ //
    }
+
+
+
+
 }
 

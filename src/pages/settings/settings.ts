@@ -4,6 +4,7 @@ import {PersonalSettingsPage} from "../personal-settings/personal-settings";
 import {AboutPage} from "../about/about";
 import {LoginPage} from "../login/login";
 import {StartPage} from "../start/start";
+import {FavoritesPage} from "../favorites/favorites";
 @Component({
   selector: 'page-settings',
   templateUrl: 'settings.html'
@@ -30,6 +31,11 @@ export class SettingsPage {
   goToLogin(){
 
     this.navCtrl.setRoot(StartPage);
+  }
+
+  favorites(){
+
+    this.navCtrl.push(FavoritesPage);
   }
 }
 

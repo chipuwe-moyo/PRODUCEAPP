@@ -1,9 +1,11 @@
+///<reference path="../my-produce/my-produce.ts"/>
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {AlertController, IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from "../../models/commodity";
 import {ProduceDetailsPage} from "../produce-details/produce-details";
 import {NgForm} from "@angular/forms";
+import {MyProducePage} from "../my-produce/my-produce";
 /**
  * Generated class for the EditcommodityPage page.
  *
@@ -19,7 +21,7 @@ export class EditcommodityPage {
 
 commodity : any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams , public commodityService : CommodityProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams , public commodityService : CommodityProvider,public viewCtrl:ViewController,public alertCtrl:AlertController) {
     this.commodity = navParams.get('commodity');
     console.log(this.commodity);
   }
@@ -27,19 +29,49 @@ commodity : any;
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditcommodityPage');
   }
-   onUpdate(form: NgForm){
+   onUpdate(data){
   this.commodityService.updateCommodity(
     this.commodity.id,
-  form.value.product,
-  form.value.description,
-  form.value.price,
-  form.value.quantity,
-  form.value.metric)
+  data.value.product,
+  data.value.description,
+  data.value.price,
+  data.value.quantity,
+  data.value.metric)
 .subscribe(
-() => alert("Commodity updated")
+() =>{
+
+  let alert = this.alertCtrl.create({
+    title: 'Commodity Updated!',
+
+    buttons: [
+
+      {
+        text: 'Ok',
+        handler: () => {
+
+
+
+          console.log('ok clicked');
+        }
+      }
+    ]
+  });
+  alert.present();
+
+}
 );
-  this.navCtrl.push(ProduceDetailsPage);
-  form.reset();
+     this.navCtrl
+       .push(MyProducePage)
+       .then(() => {
+
+         const index = this.viewCtrl.index;
+
+         for(let i = index; i > 0; i--){
+           this.navCtrl.remove(i);
+         }
+
+       });
+  data.reset();
 }
 
 }

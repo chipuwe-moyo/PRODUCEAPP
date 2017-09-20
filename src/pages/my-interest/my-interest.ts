@@ -4,7 +4,8 @@ import {AuthService} from "../../app/auth.service";
 import {UserProvider} from "../../providers/user/user";
 import {CommodityProvider} from "../../providers/commodity/commodity";
 import {commodity} from "../../models/commodity";
-
+import {notification} from "../../models/notification";
+import {MynotificationPage} from "../mynotification/mynotification";
 /**
  * Generated class for the MyInterestPage page.
  *
@@ -17,13 +18,17 @@ import {commodity} from "../../models/commodity";
   templateUrl: 'my-interest.html',
 })
 export class MyInterestPage implements OnInit{
-  notification: any;
+  notifications: Notification[];
   commodity: commodity;
 
   ngOnInit() {
-    this.notification = this.userService.notification;
-    this.commodityService.getCommodityInfo(this.notification.data.commodity_id)
-      .subscribe(commodity => this.commodity = commodity);
+   // this.notification = this.userService.notification;
+
+    this.userService.getNotifications()
+      .subscribe(
+        (likes: Notification[]) => this.notifications = likes,
+        (error: Response) =>console.log(error)
+      );
   }
 
 
@@ -34,4 +39,8 @@ export class MyInterestPage implements OnInit{
     console.log('ionViewDidLoad MyInterestPage');
   }
 
+  getmyNotification(notification){
+    this.userService.notification = notification;
+    this.navCtrl.push(MynotificationPage);
+}
 }

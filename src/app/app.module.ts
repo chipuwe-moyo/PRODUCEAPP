@@ -21,6 +21,8 @@ import {PersonalSettingsPage} from  "../pages/personal-settings/personal-setting
 import {SettingsPage}from "../pages/settings/settings";
 import {AboutPage}from"../pages/about/about";
 import {AddproducePage}from"../pages/addproduce/addproduce";
+import {AdditionPage}from"../pages/addition/addition";
+import {MynotificationPage}from"../pages/mynotification/mynotification";
 import {ProduceDetailsPage } from "../pages/produce-details/produce-details";
 import{Http, HttpModule} from '@angular/http';
 import {AuthService} from "./auth.service";
@@ -33,6 +35,7 @@ import { CommodityProvider } from '../providers/commodity/commodity';
 import { FarmersProvider } from '../providers/farmers/farmers';
 import { LikeProvider } from '../providers/like/like';
 import {NotificationPage} from '../pages/notification/notification';
+import {ResetinfoPage} from '../pages/resetinfo/resetinfo';
 import {CommoditydetailsPage} from '../pages/commoditydetails/commoditydetails';
 import { UserProvider } from '../providers/user/user';
 
@@ -58,7 +61,10 @@ import { UserProvider } from '../providers/user/user';
     ProduceDetailsPage,
     EditcommodityPage,
     NotificationPage,
-    CommoditydetailsPage
+    CommoditydetailsPage,
+    AdditionPage,
+    MynotificationPage,
+    ResetinfoPage
 
   ],
   imports: [
@@ -87,7 +93,10 @@ import { UserProvider } from '../providers/user/user';
     ProduceDetailsPage,
     EditcommodityPage,
     NotificationPage,
-    CommoditydetailsPage
+    CommoditydetailsPage,
+    AdditionPage,
+    MynotificationPage,
+    ResetinfoPage
   ],
   providers: [
     AuthService,
