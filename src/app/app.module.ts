@@ -26,7 +26,7 @@ import {MynotificationPage}from"../pages/mynotification/mynotification";
 import {ProduceDetailsPage } from "../pages/produce-details/produce-details";
 import{Http, HttpModule} from '@angular/http';
 import {AuthService} from "./auth.service";
-
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 import {Transfer} from '@ionic-native/transfer';
 import {FilePath} from '@ionic-native/file-path';
@@ -39,7 +39,11 @@ import {ResetinfoPage} from '../pages/resetinfo/resetinfo';
 import {CommoditydetailsPage} from '../pages/commoditydetails/commoditydetails';
 import { UserProvider } from '../providers/user/user';
 
-
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': '51e8549c'
+  }
+};
 @NgModule({
   declarations: [
     MyApp,
@@ -70,7 +74,8 @@ import { UserProvider } from '../providers/user/user';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

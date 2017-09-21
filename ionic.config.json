@@ -1,14 +1,14 @@
 {
   "name": "PRODUCEAPP",
-  "app_id": "",
+  "app_id": "51e8549c",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {},
     "proxies": [
-    {
-    	"path": "/server",
-    	"proxyUrl": "http://localhost:8000"
-    }
+      {
+        "path": "/server",
+        "proxyUrl": "http://localhost:8000"
+      }
     ]
   }
 }

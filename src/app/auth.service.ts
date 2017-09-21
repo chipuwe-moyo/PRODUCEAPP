@@ -19,7 +19,7 @@ export class AuthService {
 
     const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
     let body = 'username=' + username + '&password=' + password ;
-    return this.http.post('http://localhost:8000/api/auth/login',
+    return this.http.post('https://fptp-unza.herokuapp.com/api/auth/login',
       body, {headers: headers})
       .map(
         (response: Response) => {
@@ -68,7 +68,7 @@ export class AuthService {
 
     const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    return this.http.post('http://localhost:8000/api/auth/register',
+    return this.http.post('https://fptp-unza.herokuapp.com//api/auth/register',
       body, {headers: headers});
   }
 }

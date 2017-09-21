@@ -28,7 +28,7 @@ export class UserProvider {
 
     const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
 
-    return this.http.post('http://localhost:8000/api/commodity/notify/' + id + '?token=' + token, body, {headers: headers})
+    return this.http.post('https://fptp-unza.herokuapp.com/api/commodity/notify/' + id + '?token=' + token, body, {headers: headers})
       .map(
         (response: Response) => response.json()
       );
@@ -57,7 +57,7 @@ export class UserProvider {
      '&phone_number=' +newPhone_number;
 
     const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    return this.http.put('http://localhost:8000/api/user/update' +'?token=' + token, body, {headers: headers})
+    return this.http.put('https://fptp-unza.herokuapp.com/api/user/update' +'?token=' + token, body, {headers: headers})
       .map(
         (response: Response) => response.json()
       );
@@ -75,7 +75,7 @@ export class UserProvider {
 
   getUserInfo(id: number): Observable<user> {
     const token = this.authService.getToken();
-    return this.http.get('http://localhost:8000/api/user?token='+token)
+    return this.http.get('https://fptp-unza.herokuapp.com/api/user?token='+token)
       .map((res: Response) => {return res.json().user;})
   }
 
@@ -83,7 +83,7 @@ export class UserProvider {
   resetemail(email:string): Observable<user> {
    let body= '&email='+ email;
     const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-    return this.http.post('http://localhost:8000/api/recovery',body,{headers:headers})
+    return this.http.post('https://fptp-unza.herokuapp.com/api/recovery',body,{headers:headers})
       .map((res: Response) => {return res.json()})
   }
 }

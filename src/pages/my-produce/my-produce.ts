@@ -51,10 +51,10 @@ export class MyProducePage implements OnInit {
     let query = searchEvent.target.value
     // We will only perform the search if we have 3 or more characters
     if (query.trim() === '' || query.trim().length < 4) {
-      // Load cached users
+      // Load cached commodities
       this.commodities = this.orgcommodities;
     } else {
-      //Get the searched users from github
+      //Get the searched commodities from backend
       this.commodityService.search(query).subscribe(commodities => {
         this.commodities = commodities
       });

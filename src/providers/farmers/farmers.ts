@@ -16,7 +16,7 @@ import {user} from '../../models/user';
 export class FarmersProvider {
   getFarmer():Observable<user[]> {
 
-    return this.http.get("http://localhost:8000/api/user")
+    return this.http.get("https://fptp-unza.herokuapp.com/api/user")
       .map((res: Response) => {return res.json().users});
 
 
