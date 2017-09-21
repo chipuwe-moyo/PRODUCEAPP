@@ -12,6 +12,7 @@
 
     <ion-item-sliding *ngFor="let commodity of commodities" on-click="goToDetails(commodity.id)">
       <ion-item>
+
       <h2>{{ commodity.product }} </h2>
       <p> {{commodity.description}}</p>
       <ion-icon name="arrow-forward" item-right></ion-icon>

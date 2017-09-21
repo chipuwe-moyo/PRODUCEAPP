@@ -6,6 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/Rx'
 import {Observable} from 'rxjs/Rx';
 import {user} from '../../models/user';
+import {AuthService} from "../../app/auth.service";
 /*
   Generated class for the FarmersProvider provider.
 
@@ -14,14 +15,15 @@ import {user} from '../../models/user';
 */
 @Injectable()
 export class FarmersProvider {
-  getFarmer():Observable<user[]> {
 
-    return this.http.get("https://fptp-unza.herokuapp.com/api/user")
+  getFarmer():Observable<user[]> {
+    const token = this.authService.getToken();
+    return this.http.get("http://localhost:8000/api/user/all?token="+token)
       .map((res: Response) => {return res.json().users});
 
 
   }
-  constructor(public http: Http) {
+  constructor(public http: Http,public authService: AuthService) {
     console.log('Hello FarmersProvider Provider');
   }
 

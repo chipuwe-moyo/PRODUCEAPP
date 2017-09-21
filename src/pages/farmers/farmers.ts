@@ -19,9 +19,9 @@ export class FarmersPage implements OnInit{
   users:user[]
 
   ngOnInit(){
-    this.farmersService.getFarmer().subscribe((users: user[]) => {
-      this.users = users;
-    });
+    // this.farmersService.getFarmer().subscribe((users: user[]) => {
+    //   this.users = users;
+    // });
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public  farmersService:FarmersProvider) {

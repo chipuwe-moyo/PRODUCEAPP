@@ -38,7 +38,8 @@ export class AdditionPage {
       form.value.town,
       form.value.province,
       form.value.country,
-      form.value.photo)
+      form.value.photo,
+    )
       .subscribe(
         () => {
 

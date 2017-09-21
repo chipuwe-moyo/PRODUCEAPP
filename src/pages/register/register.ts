@@ -59,7 +59,27 @@ export class RegisterPage implements OnInit{
           this.navCtrl.pop(LoginPage);
           form.reset();
         },
-        error => console.log(error)
+        error  => {
+          console.log(error);
+          let alert = this.alertCtrl.create({
+            title: 'Failed Register please try again!',
+
+            buttons: [
+
+              {
+                text: 'OK',
+                handler: () => {
+
+
+
+                  console.log('ok clicked');
+                }
+              }
+            ]
+          });
+          alert.present();
+
+        }
       );
 
   }

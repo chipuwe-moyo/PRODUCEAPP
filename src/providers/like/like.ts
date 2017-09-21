@@ -18,7 +18,7 @@ export class LikeProvider {
   }
   getLikes(): Observable<Like[]> {
     const token = this.authService.getToken();
-    return this.http.get('https://fptp-unza.herokuapp.com/api/commodity/like/mine?token=' + token)
+    return this.http.get('http://localhost:8000/api/commodity/like/mine?token=' + token)
       .map(
         (response: Response) => {
           return response.json().likes;

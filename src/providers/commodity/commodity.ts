@@ -20,7 +20,7 @@ export class CommodityProvider {
 
   getCommodity():Observable<commodity[]> {
 
-    return this.http.get("https://fptp-unza.herokuapp.com/api/commodity/all")
+    return this.http.get("http://localhost:8000/api/commodity/all")
       .map((res: Response) => {return res.json().commodities});
 
 
@@ -28,7 +28,7 @@ export class CommodityProvider {
 
   getMyCommodities(): Observable<commodity[]> {
     const token = this.authService.getToken();
-    return this.http.get('https://fptp-unza.herokuapp.com/api/commodity/mine?token=' + token)
+    return this.http.get('http://localhost:8000/api/commodity/mine?token=' + token)
       .map(
         (response: Response) => {
           return response.json().commodities;
@@ -37,7 +37,7 @@ export class CommodityProvider {
   }
 
 
-  getApiUrl : "https://fptp-unza.herokuapp.com/api/commodity/info";
+  getApiUrl : "http://localhost:8000/api/commodity/info";
 //
 
   addCommodity(product: string,
@@ -48,7 +48,8 @@ export class CommodityProvider {
               town: string,
               province: string,
               country: string,
-              photo:any)
+              photo:any,
+              )
     {
       const token = this.authService.getToken();
       const body = 'product=' + product +
@@ -58,14 +59,15 @@ export class CommodityProvider {
         '&metric=' + metric+
         '&town=' + town+
         '&province=' + province+
-        '&country=' + country;
+        '&country=' + country
+
       const headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
-      return this.http.post('https://fptp-unza.herokuapp.com/api/commodity/store?token=' + token, body, {headers: headers});
+      return this.http.post('http://localhost:8000/api/commodity/store?token=' + token, body, {headers: headers});
     }
 
 
   getCommodityInfo(id: number): Observable<commodity> {
-    return this.http.get('https://fptp-unza.herokuapp.com/api/commodity/info/'+id)
+    return this.http.get('http://localhost:8000/api/commodity/info/'+id)
       .map((res: Response) => {return res.json().commodity;})
   }
 
@@ -74,7 +76,7 @@ export class CommodityProvider {
 
   deleteCommodity(id: number) {
     const token = this.authService.getToken();
-    return this.http.delete('https://fptp-unza.herokuapp.com/api/commodity/' + id + '?token=' + token);
+    return this.http.delete('http://localhost:8000/api/commodity/' + id + '?token=' + token);
   }
 
 
@@ -89,7 +91,7 @@ export class CommodityProvider {
 
   search(query: string): Observable<commodity[]> {
 
-    return this.http.get('https://fptp-unza.herokuapp.com/api/search?q=' + query)
+    return this.http.get('http://localhost:8000/api/search?q=' + query)
       .map(
         (response: Response) => {
           return response.json().commodities;
@@ -114,7 +116,7 @@ export class CommodityProvider {
       metric: newMetric
     });
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.put('https://fptp-unza.herokuapp.com/api/commodity/' + id + '?token=' + token, body, {headers: headers})
+    return this.http.put('http://localhost:8000/api/commodity/' + id + '?token=' + token, body, {headers: headers})
       .map(
         (response: Response) => response.json()
       );
