@@ -28,11 +28,7 @@ loading=false;
     console.log('ionViewDidLoad LoginPage');
   }
 
-  passwordreset(){
 
-    this.navCtrl.push(ChangepersonalsPage);
-
-  }
 onLogin(form: NgForm){
     this.loading =true;
     this.authService.login(form.value.username, form.value.password)
